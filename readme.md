@@ -6,6 +6,7 @@ Bienvenido al curso de Proyecto Integrador 1.
 
 Lo primero es que una al grupo del curso, para comunicarnos. (No stickers restrictions, pero sea respetuoso).
 
+WIFI: F0rmul4-1
 
 
 <table style="border-collapse: collapse; border: none;" border="0">
