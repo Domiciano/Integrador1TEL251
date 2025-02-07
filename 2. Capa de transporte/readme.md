@@ -1,10 +1,89 @@
 <img src="https://raw.githubusercontent.com/Domiciano/AppMoviles251/refs/heads/main/res/images/icesilogo.png" width="256">
 
-# Protocolos de tranporte
+# Cliente/Servidor TCP
 
-## Protocolo TCP
+## Servidor
+```java
+package org.example;
 
-## Protocolo UDP
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+//192.168.130.55
+public class Server {
+    public static void main(String[] args) throws IOException {
+        ServerSocket server = new ServerSocket(5001);
+        System.out.println("Waiting for connection...");
+        Socket socket = server.accept(); // Esperando la conexión // Bloqueante
+        //socket representa la conexión con el cliente
+        System.out.println("Connection accepted");
+
+        InputStream is = socket.getInputStream();
+        OutputStream out = socket.getOutputStream();
+        //Lectura
+        startListening(is);
+        System.out.println("Listening stated");
+
+        while (true) {
+        }
+    }
+
+    //Proceso de lectura
+    private static void startListening(InputStream is){
+        new Thread(
+                ()->{
+                    while (true) {
+                        try {
+                            byte[] buffer = new byte[1024];
+                            // X X X X X X X X X X ... X
+                            is.read(buffer); // Bloqueante
+                            // H O L A X X X X X X ... X
+                            String message = new String(buffer).trim();
+                            System.out.println(message);
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }
+        ).start();
+    }
+}
+```
+
+## Cliente
+```java
+package org.example;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client {
+    public static void main(String[] args) throws IOException {
+        //Iniciar conexión
+        Socket socket = new Socket("127.0.0.1", 5001);
+        System.out.println("Connected");
+
+        InputStream is = socket.getInputStream();
+        OutputStream out = socket.getOutputStream();
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Escriba un mensaje");
+            String message = scanner.nextLine();
+            out.write(message.getBytes());
+        }
+    }
+}
+
+```
 
 
 
