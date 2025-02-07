@@ -4,7 +4,7 @@
 
 ## Interfaces
 
-```
+```java
 import java.io.IOException;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
