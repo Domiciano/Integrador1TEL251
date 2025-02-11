@@ -2,7 +2,7 @@
 
 ## 1. Preparación
 Este comando le permitirá generar el JAR para ejecutar la aplicación
-```
+```sh
 mvn clean package -DskipTests
 ``` 
 Se genera el .jar, luego se debe hacer el dockerfile
@@ -10,7 +10,7 @@ Se genera el .jar, luego se debe hacer el dockerfile
 
 ## 2. Generación de imagen
 
-```
+```Dockerfile
 # Utiliza una imagen base de Java
 FROM amazoncorretto:22-jdk
 
@@ -25,36 +25,35 @@ EXPOSE 8080
 
 # Comando para ejecutar la aplicación Spring Boot
 CMD ["java", "-jar", "backend.jar"]
-
 ```
 Luego se hace el build de la imagen de docker
-```
+```sh
 docker build -t back:0.0.1 .
 ```
 Todas las versiones vienen con un nombre de imagen y un número de versión. Se puede usar un formato de tres puntos de versión.</br></br>
 
 ## 3. Ejecutar imagen
 Para ejecutar la imagen en un contenedor use
-```
+```sh
 docker run -p 8080:8080 back:0.0.1
 ```
 Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 8080 y que está mapeado al puerto 8080 del contenedor.</br></br>
 
 ## 4. Publicación
 Querrá usar su imagen de docker, para hacerlo debe subir su imagen a DockerHUB. Para iniciar el proceso use un tag
-```
+```sh
 docker tag back:0.0.1 domi0620/back:0.0.1
 ```
 En el tag especifique el nombre de su imagen local y luego un nombre cuyo prefijo sea su nombre de usuario en dockerhub.</br></br>
 Ahora puede hacer push del stack para tener un backup online de su imagen. Esto le permitirá usar las imágenes y construir un stack de servicios
-```
+```sh
 docker push domi0620/back:0.0.1 
 ```
 
 ## 5. Uso de variables de entorno
 Puede ser conveniente usar variables de entorno en los proyecto para evitar que se realicen builds consecutivos.
 Por ejemplo, en el application.properties del backend puede usar variables de entorno
-```
+```properties
 spring.application.name=IntregradorAPI
 spring.jpa.hibernate.ddl-auto=update
 spring.datasource.username=${DB_USER}
@@ -70,7 +69,7 @@ El llamado ${MI_VARIABLE} lo hace directamente el runtime y permite parametrizar
 ## 6. Montaje de docker-compose
 En este docker compose sólo se va a hacer el montaje de la base de datos y del Rest API
 
-```
+```yml
 version: "3.7"
 services:
   db:
@@ -114,16 +113,16 @@ networks:
   mired:
 ```
 Para inciar la ejecución use
-```
+```sh
 docker-compose up -d
 ```
 
 Para detener su stack
-```
+```sh
 docker-compose down
 ```
 
-```
+```sh
 docker network ls
 ```
 
@@ -132,7 +131,7 @@ docker network inspect <NETWORK ID>
 ```
 
 Si quiere tener un administrador web para la base de datos, añada el servicio
-```
+```yml
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -148,7 +147,7 @@ Si quiere tener un administrador web para la base de datos, añada el servicio
 
 ## 1. Preparación
 Configuración del servidor nginx. Corresponde al archivo nginx.conf. Este archivo se deberá copiar al contenedor de NGINX
-```
+```conf
 server {
     listen 3000;
     root /usr/share/nginx/html;
@@ -161,7 +160,7 @@ server {
 
 ## 2. Generación de imagen
 
-```
+```Dockerfile
 # Utiliza una imagen base con Nginx instalado
 FROM --platform=linux/amd64 nginx:latest
 COPY nginx.conf /etc/nginx/conf.d/default.conf
@@ -170,26 +169,26 @@ COPY . /usr/share/nginx/html/
 EXPOSE 3000
 ```
 
-```
+```sh
 docker build -t front:0.0.1 .
 ```
 
 ## 3. Ejecutar imagen
 Para ejecutar la imagen en un contenedor use
-```
+```sh
 docker run -p 3000:3000 front:0.0.1
 ```
 Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 8080 y que está mapeado al puerto 8080 del contenedor.</br></br>
 
 ## 4. Publicación
 Querrá usar su imagen de docker, para hacerlo debe subir su imagen a DockerHUB. Para iniciar el proceso use un tag
-```
+```sh
 docker tag front:0.0.1 domi0620/front:0.0.1
 ```
 En el tag especifique el nombre de su imagen local y luego un nombre cuyo prefijo sea su nombre de usuario en dockerhub.</br></br>
 
 Ahora puede hacer push del stack para tener un backup online de su imagen. Esto le permitirá usar las imágenes y construir un stack de servicios
-```
+```sh
 docker push domi0620/front:0.0.1          
 ```
 
@@ -209,7 +208,7 @@ project/
 ```
 
 Puede usar un Dockerfile similar a
-```
+```Dockerfile
 FROM python:3.10-slim
 WORKDIR /app
 COPY ./app .
@@ -225,7 +224,7 @@ __pycache__/
 
 Cuando inserta variables de entorno, por ejemplo en un docker-compose.yml, puede usar la variable
 
-```
+```python
 import os
 ...
 my_var = os.getenv("MY_VAR")
@@ -239,7 +238,7 @@ my_var = os.getenv("MY_VAR")
 ## 1. Desplegar a producción
 Para subir en un orquestador de contenedores como portainer se debe usar la configuración establecida por el administrador para poder hacer la publicación.
 
-```
+```yml
 version: "3.7"
 services:
   bannerdb:
