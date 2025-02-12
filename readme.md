@@ -21,3 +21,41 @@ WIFI: F0rmul4-1
     </td>
   </tr>
 </table>
+
+# Planeador
+<table style="border-collapse: collapse; border: none;" border="0">
+  <tr>
+    <td>
+      S1
+    </td>
+    <td>
+      Presentación del curso
+      Overview del curso. Calificaciones, reglas, actividades del curso y asignaciones.
+    </td>
+    <td style="vertical-align: middle;">
+      4/2/2025
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S2
+    </td>
+    <td>
+      Modelo OSI, direccionamiento IP. Dónde me encuentro cuando me conecto a una red de internet. Protocolo TCP y primera conexión
+    </td>
+    <td style="vertical-align: middle;">
+      6/2/2025
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S3
+    </td>
+    <td>
+      Overview del proyecto. Comunicación asincrónica TCP. Entendiendo el flujo de procesos. Servidor multicliente
+    </td>
+    <td style="vertical-align: middle;">
+    11/2/2025
+    </td>
+  </tr>
+</table>
