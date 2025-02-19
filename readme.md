@@ -109,3 +109,19 @@ Santiago Barraza
 ```
 sjbs0212@gmail.com
 ```
+
+# Equipos
+
+## EQUIPO 1: 
+- Angela
+- Melo
+- Arias
+- Molina
+- Pacheco
+
+## EQUIPO 2:
+- Guarin
+- Pérez
+- Garzón
+- Trujillo
+- Polanco
