@@ -90,6 +90,18 @@ En la introducción incluya al menos <b>4 referencias</b>, puede ubicarlas en la
     12/2/2025
     </td>
   </tr>
+  <tr>
+    <td>
+      S5
+    </td>
+    <td>
+      Asignación de primera entrega.
+      Rest API
+    </td>
+    <td style="vertical-align: middle;">
+    12/2/2025
+    </td>
+  </tr>
 </table>
 
 # Monitor
