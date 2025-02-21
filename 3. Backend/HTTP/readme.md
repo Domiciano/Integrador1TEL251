@@ -47,7 +47,6 @@ public class HelloController {
 
 ```
 
-# Lectura de datos por medio del HTTP Request
 
 
 # Leer Datos desde el Request en Spring Boot
