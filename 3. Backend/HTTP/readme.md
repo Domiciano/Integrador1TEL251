@@ -148,6 +148,113 @@ public class User {
 
 
 
+# Uso de ResponseEntity en Spring Boot
+
+`ResponseEntity` es una clase de Spring utilizada para representar toda la respuesta HTTP, incluyendo el cuerpo, los encabezados y el código de estado.
+
+## 1. Retornar una Respuesta Exitosa (200 OK)
+
+```java
+@RestController
+@RequestMapping("/api")
+public class ResponseEntityController {
+
+    @GetMapping("/success")
+    public ResponseEntity<?> successResponse() {
+        return ResponseEntity.ok(Map.of("message", "Operación exitosa"));
+    }
+}
+```
+
+### Explicación
+- `ResponseEntity.ok(Map.of(...))`: Retorna un código de estado `200 OK` con un cuerpo en formato `Map`.
+
+---
+
+## 2. Retornar un Código de Estado Personalizado
+Podemos personalizar el código de estado utilizando `ResponseEntity.status()`.
+
+```java
+@GetMapping("/custom-status")
+public ResponseEntity<?> customStatus() {
+    return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Recurso creado correctamente"));
+}
+```
+
+### Explicación
+- `ResponseEntity.status(HttpStatus.CREATED).body(Map.of(...))`: Retorna `201 Created` con un mensaje en formato `Map`.
+
+---
+
+## 3. Retornar una Respuesta con Headers Personalizados
+Podemos agregar headers adicionales a la respuesta.
+
+```java
+@GetMapping("/with-headers")
+public ResponseEntity<?> responseWithHeaders() {
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Custom-Header", "ValorPersonalizado");
+    return ResponseEntity.ok().headers(headers).body(Map.of("message", "Respuesta con headers"));
+}
+```
+
+
+- `HttpHeaders`: Permite agregar headers personalizados.
+- `headers(headers)`: Agrega los headers a la respuesta.
+
+---
+
+## 4. Retornar un Código de Error (400 Bad Request)
+Podemos manejar errores devolviendo un código HTTP adecuado.
+
+```java
+@GetMapping("/bad-request")
+public ResponseEntity<?> badRequest() {
+    return ResponseEntity.badRequest().body(Map.of("error", "Solicitud incorrecta"));
+}
+```
+
+
+- `ResponseEntity.badRequest()`: Retorna `400 Bad Request` con un mensaje de error en `Map`.
+
+---
+
+## 5. Retornar un Código 404 Not Found
+Si el recurso no existe, podemos devolver un `404 Not Found`.
+
+```java
+@GetMapping("/not-found")
+public ResponseEntity<?> notFound() {
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Recurso no encontrado"));
+}
+```
+
+
+- `HttpStatus.NOT_FOUND`: Retorna un `404` con un mensaje adecuado en `Map`.
+
+---
+
+## 6. Retornar un No Content (204 No Content)
+Si no hay contenido que devolver, podemos usar `204 No Content`.
+
+```java
+@GetMapping("/no-content")
+public ResponseEntity<?> noContent() {
+    return ResponseEntity.noContent().build();
+}
+```
+
+
+- `ResponseEntity.noContent().build()`: Retorna `204 No Content` sin cuerpo.
+
+
+Con estas técnicas, podemos estructurar mejor nuestras respuestas en una API RESTful.
+
+
+
+
+
+
 # Archivo de configuración
 En el archivo de configuración se pueden cambiar parámetros estáticos del servidor. Como por ejemplo el puerto por el que escucha las solicitudes
 ```
