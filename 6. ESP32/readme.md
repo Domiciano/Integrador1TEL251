@@ -74,7 +74,7 @@ void serialEvent() {
 }
 ```
 ## Configuración inicial
-Debe definir la tasa de baudios de la transmisión
+Debe definir la tasa de baudios de la transmisión en el archivo `platformio.ini`
 ```ini
 ...
 monitor_speed = 115200
