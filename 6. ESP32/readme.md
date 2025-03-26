@@ -34,8 +34,8 @@ Tools > Boards > esp32 > ESP32-WROOM-DA Module
 Estos pasos son para usar PlatformIO sobre Visal Studio Code
 <ol>
   <li>En visual studio vaya a extensiones y busque PlatformIO</li>
-  <li>Escoja la extensión con ícono de insecto naranha, de platformio.org</li>
-  <li>Al instalarla, en el menú de la izquierda aparecerá el insecto, de click allí</li>
+  <li>Escoja la extensión con ícono de insecto naranja, de platformio.org</li>
+  <li>Al instalarla, en el menú de la izquierda aparecerá un insecto, de click allí</li>
   <li>En la sección Quick Access, escoja la opción Open</li>
   <li>De click en la opción de + New Project</li>
   <li>Escoja un nombre cualquiera</li>
