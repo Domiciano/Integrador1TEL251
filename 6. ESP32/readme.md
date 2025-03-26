@@ -81,6 +81,15 @@ monitor_speed = 115200
 ...
 ```
 
+## Si quiere modifcar el puerto para subir su programa, puede usar
+```ini
+upload_port=/dev/cu.usbserial-0001
+```
+
+```ini
+upload_port=COM5
+```
+
 # Referencias
 <ol>
   <li>https://docs.espressif.com/projects/esp-idf/en/v4.2/esp32/api-reference/peripherals/adc.html#:~:text=The%20ESP32%20integrates%20two%2012,channels%20(analog%20enabled%20pins).</li>
