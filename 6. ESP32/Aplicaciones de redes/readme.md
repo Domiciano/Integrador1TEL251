@@ -19,17 +19,6 @@ const char* ssid = "SU_SSID";
 const char* password = "SU_CONTRASENA";
 
 
-void setup() {
-  Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  initWiFi();
-
-}
-
-void loop() {
-  
-}
-
 void initWiFi() {
   WiFi.begin(ssid, password);
   Serial.print("Connecting to WiFi ..");
@@ -39,6 +28,17 @@ void initWiFi() {
   }
   Serial.println("Connected!!");
   Serial.println(WiFi.localIP());
+  
+}
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  initWiFi();
+
+}
+
+void loop() {
   
 }
 
