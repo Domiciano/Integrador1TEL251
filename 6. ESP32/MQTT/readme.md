@@ -13,12 +13,12 @@ const char* ssid = "PUBLICA";
 const char* password = "";
 
 // Configuración del servidor MQTT
-const char* mqttServer = "broker.hivemq.com";
+const char* mqttServer = "broker.emqx.io";
 const int mqttPort = 1883;
 const char* clientName = "ESP32ClienteIcesi001";
 
 // Configuración del topic
-const char* topic = "test/101/beta";
+const char* topic = "icesi/integrador";
 
 // Objeto WiFiClient
 WiFiClient wifiClient;
