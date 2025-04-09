@@ -113,7 +113,7 @@ https://www.emqx.com/en/mqtt/public-mqtt5-broker
 ```
 
 Allí verá los parámetros de conexión
-```
+
 | Parámetro  | Valor |
 | ------------- | ------------- |
 | Broker | broker.emqx.io |
@@ -123,13 +123,6 @@ Allí verá los parámetros de conexión
 | WebSocket Secure Port | 8084 |
 | QUIC Port | 14567 |
 
- 
- 
- 
- 
- 
- 
-```
 
 # Cliente web de MQTT
 
