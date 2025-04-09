@@ -104,3 +104,8 @@ void serialEvent() {
 }
 ```
 
+# Cliente web de MQTT
+
+Puede conectarse a esta página para ensayar el protocolo de telemetría
+
+<a href="https://mqttx.app/web-clien">mqttx.app/web-client<a>
