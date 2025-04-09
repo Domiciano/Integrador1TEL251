@@ -1,4 +1,4 @@
-## Conexión a MQTT Server SIN SSL
+# Conexión a MQTT Server SIN SSL
 
 Para usar este código necesitará PubSubClient de Nick O'Leary
 https://github.com/knolleary/pubsubclient
@@ -102,6 +102,33 @@ void serialEvent() {
     mqttClient.publish("test/101/beta", data.c_str(), 1);
   }
 }
+```
+
+# Broker
+
+El broker MQTT al que nos conectaremos es
+
+```
+https://www.emqx.com/en/mqtt/public-mqtt5-broker
+```
+
+Allí verá los parámetros de conexión
+```
+| Parámetro  | Valor |
+| ------------- | ------------- |
+| Broker | broker.emqx.io |
+| TCP Port | 1883 |
+| WebSocket Port | 8083 |
+| SSL/TLS Port | 8883 |
+| WebSocket Secure Port | 8084 |
+| QUIC Port | 14567 |
+
+ 
+ 
+ 
+ 
+ 
+ 
 ```
 
 # Cliente web de MQTT
