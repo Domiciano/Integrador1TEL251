@@ -2,13 +2,14 @@
 
 Para hacer llamados de tipo GET
 
-```
+```js
 const response = await fetch(url);
 const json = await response.json();
 ```
 
 Para hacer un POST, PUT o DELETE, sigue esto mismo
-```
+
+```js
 const response = await fetch(url, {
   method: 'POST', 
   headers: {
