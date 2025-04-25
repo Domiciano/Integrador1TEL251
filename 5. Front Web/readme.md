@@ -50,7 +50,7 @@ Se adicionan un `input` y un `button` para que el usuario pueda escribir el mens
 Ahora, se puede construir un algoritmo basado en eventos que muestre en consola los mensajes recibidos y además permita enviar mensajes
 
 
-```javascript
+```js
 const client = new Paho.MQTT.Client('broker.hivemq.com', Number(8000), "webmqttuser1");
 
 //Listener de mensajes
