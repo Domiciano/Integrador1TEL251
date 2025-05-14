@@ -96,52 +96,52 @@ export function MyComponent() {
 }
 ```
 
+# Extracción de datos de formularios
 
-# Navegación con paso de states
-
-En el origen
-
-```jsx
-navigate('/home', { state: { state1, state2 }});
-
-```
-
-En el destino, para recuperar los estados
+En este ejemplo sencillo podemos ver cómo se hace la extracción de valores
 
 ```jsx
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Container, Box, TextField, Button } from "@mui/material";
 
-...
+function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-const location = useLocation();
-const { email, token } = location.state || {};
-```
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Correo:", email);
+    console.log("Contraseña:", password);
+  };
 
+  return (
+    <Container maxWidth="sm" sx={{ mt: 4 }}>
+      <Box
+        component="form"
+        sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+      >
+        <TextField
+          label="Correo electrónico"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          fullWidth
+        />
+        <TextField
+          label="Contraseña"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          fullWidth
+        />
+        <Button onClick={handleSubmit} type="submit" variant="contained">
+          Enviar
+        </Button>
+      </Box>
+    </Container>
+  );
+}
 
-# Navegación con parámetros
-
-En la ruta
-
-```jsx
-<Route path="/perfil/:userId" element={<Perfil />} />
-````
-
-En el origen
-
-```jsx
-navigate(`/perfil/24`);
-
-```
-
-En el destino, para recuperar el valor `24`
-
-```jsx
-import { useParams } from "react-router-dom";
-
-...
-
-const { userId } = useParams();
-
+export default App;
 ```
 
 
