@@ -54,5 +54,38 @@ function App() {
 export default App;
 ```
 
+# En caso de tener arreglos
 ```jsx
+const users = [
+  {
+    id: 1,
+    name: 'Juan Pérez',
+    email: 'juan@example.com',
+    bio: 'Desarrollador frontend con experiencia en React.'
+  },
+  {
+    id: 2,
+    name: 'María Gómez',
+    email: 'maria@example.com',
+    bio: 'Diseñadora UX/UI apasionada por la accesibilidad.'
+  },
+  {
+    id: 3,
+    name: 'Carlos Ruiz',
+    email: 'carlos@example.com',
+    bio: 'Ingeniero de datos especializado en Python y SQL.'
+  }
+];
 ```
+
+Y use un map o for para representar todo el arreglo
+```jsx
+import { Stack } from '@mui/material';
+
+<Stack spacing={2}>
+  {users.map(user => (
+    <UserCard key={user.id} user={user} />
+  ))}
+</Stack>
+```
+
