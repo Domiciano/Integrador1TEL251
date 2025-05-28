@@ -53,7 +53,9 @@ export default Graph;
 ```
 
 🎯 Cree un endpoint GET que permita descargar una muestra
-🎯 Defina la forma de los datos para que el componente web descargue la información ya de una vez lista
-🎯 Use los datos para pasarlos al gráfico
+
+🎯 Defina la forma de los datos para que el componente web descargue la información ya de una vez lista para graficar
+
+🎯 Obtenga los datos, páselos al gráfico y observe la señal (Escoja una de las 6 señales)
 
 
