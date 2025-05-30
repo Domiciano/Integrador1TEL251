@@ -95,8 +95,3 @@ Para ejecutar la imagen en un contenedor use
 docker run -p 3000:3000 front:0.0.1
 ```
 Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 3000
-
-networks:
-  proxy:
-    external: true
-```
