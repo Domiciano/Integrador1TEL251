@@ -37,7 +37,14 @@ Para ejecutar la imagen en un contenedor use
 ```sh
 docker run -p 8080:8080 back:0.0.1
 ```
-Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 8080 y que está mapeado al puerto 8080 del contenedor.</br></br>
+Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 8080 y que está mapeado al puerto 8080 del contenedor.
+
+# Entendiendo las redes de contenedores
+
+Probablemente necesite esta linea. Entienda primero las redes de contenedores. Luego use
+```
+spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/db
+```
 
 
 # Frontend
